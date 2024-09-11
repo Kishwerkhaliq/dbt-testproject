@@ -52,6 +52,79 @@ sources:
             description: logistic cost
           - name: ship_cost
             description: shipping cost
+        
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: campaign details on adwords
+        columns:
+          - name: date_date
+            description: compaign date
+          - name: paid_source
+            description: company name where campaign ran
+          - name: campaign_key
+            description: associated key with campaign 
+          - name: camPGN_name
+            description: full name of the campaign
+          - name: ads_cost
+            description: cost of the running ads
+          - name: impression
+            description: how much impressions received from viewers/customers
+          - name: click
+            description: number of clicks received from viewers/customers
+      - name: bing
+        identifier: raw_gz_bing
+        description: campaign details on bing
+        columns:
+          - name: date_date
+            description: compaign date
+          - name: paid_source
+            description: company name where campaign ran
+          - name: campaign_key
+            description: associated key with campaign 
+          - name: camPGN_name
+            description: full name of the campaign
+          - name: ads_cost
+            description: cost of the running ads
+          - name: impression
+            description: how much impressions received from viewers/customers
+          - name: click
+            description: number of clicks received from viewers/customers
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: campaign details on criteo
+        columns:
+          - name: date_date
+            description: compaign date
+          - name: paid_source
+            description: company name where campaign ran
+          - name: campaign_key
+            description: associated key with campaign 
+          - name: camPGN_name
+            description: full name of the campaign
+          - name: ads_cost
+            description: cost of the running ads
+          - name: impression
+            description: how much impressions received from viewers/customers
+          - name: click
+            description: number of clicks received from viewers/customers
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: campaign details on facebook
+        columns:
+          - name: date_date
+            description: compaign date
+          - name: paid_source
+            description: company name where campaign ran
+          - name: campaign_key
+            description: associated key with campaign 
+          - name: camPGN_name
+            description: full name of the campaign
+          - name: ads_cost
+            description: cost of the running ads
+          - name: impression
+            description: how much impressions received from viewers/customers
+          - name: click
+            description: number of clicks received from viewers/customers
 
 #models testing constraints:
 models:
