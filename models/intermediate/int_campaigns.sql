@@ -3,7 +3,7 @@ WITH adwords AS (
         date_date,
         paid_source,
         campaign_key,
-        camPGN_name AS campaign_name,
+        campaign_name,
         ads_cost,
         impression,
         click
@@ -14,7 +14,7 @@ bing AS (
         date_date,
         paid_source,
         campaign_key,
-        camPGN_name AS campaign_name,
+        campaign_name,
         ads_cost,
         impression,
         click
@@ -25,7 +25,7 @@ facebook AS (
         date_date,
         paid_source,
         campaign_key,
-        camPGN_name AS campaign_name,
+        campaign_name,
         ads_cost,
         impression,
         click
@@ -36,7 +36,7 @@ criteo AS (
         date_date,
         paid_source,
         campaign_key,
-        camPGN_name AS campaign_name,
+        campaign_name,
         ads_cost,
         impression,
         click
