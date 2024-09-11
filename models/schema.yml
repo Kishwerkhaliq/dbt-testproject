@@ -1,0 +1,89 @@
+# schema.yml
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        description: "Sales data"
+        columns:
+          - name: date_date
+            description: "date of purchase"
+          - name: orders_id
+            description: "id of the order"
+            tests:
+              - not_null
+          - name: pdt_id
+            description: "product id"
+            tests:
+              - not_null
+          - name: revenue
+            description: "revenue of the product"
+          - name: quantity
+            description: "quantity of the product"
+        tests:
+          - unique:
+              column_name: "(orders_id ||'_'|| pdt_id)"
+
+      - name: product
+        identifier: raw_product
+        description: "Product data"
+        columns:
+          - name: products_id
+            description: "id of the product"
+            tests:
+              - unique
+              - not_null
+              #tests for unique identifier/primary key
+          - name: purchSE_price
+            description: "purchase price of the order"
+          - name: pdt_id
+      - name: ship
+        identifier: raw_ship
+        description: "Shipping data"
+        columns:
+          - name: orders_id
+            description: ID associated with order
+          - name: shipping_fee
+            description: shipping fee
+          - name: log_cost
+            description: logistic cost
+          - name: ship_cost
+            description: shipping cost
+
+#models testing constraints:
+models:
+  - name: stg_raw_product
+  - name: stg_raw_sales
+  - name: stg_raw_ship
+  - name: int_sales_margin
+    description: margin calcultation per order line / product sale
+    columns:
+      - name: margin
+        description: Margin = Revenue - Purchase_cost
+      - name: Purchase_cost
+        description: Purchase_cost = Quantity * Purchase_price
+  - name: int_orders_margin
+    description: margin calcultation per order
+    columns:
+      - name: orders_id
+        description: primary key
+      - name: margin
+        description: Margin = Revenue - Purchase_cost
+      - name: Purchase_cost
+        description: Purchase_cost = Quantity * Purchase_price
+      - name: date_date
+        description: date of the order
+      - name: revenue
+        description: sum of revenue per order
+      - name: quantity
+        description: sum of quantity per order
+  - name: int_orders_operational
+    description: operational margin calcultation per order
+    columns:
+      - name: operational_margin
+        description: Operational margin = margin + shipping fee - log_cost - ship_cost
+  - name: finance_days
+    description: finance calculation per days
